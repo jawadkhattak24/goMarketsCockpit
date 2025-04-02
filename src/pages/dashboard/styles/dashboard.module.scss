@@ -214,3 +214,148 @@
   border-radius: 8px;
   border: 1px dashed #e2e8f0;
 }
+
+.logoutButton {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #718096;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  justify-content: center;
+
+  svg {
+    font-size: 1.25rem;
+  }
+
+  &:hover {
+    background: #f7fafc;
+    color: #e53e3e;
+    border-color: #fed7d7;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  span {
+    font-weight: 500;
+  }
+}
+
+.dialogBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dialogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #2d3748;
+    font-weight: 600;
+  }
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: #718096;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+
+  &:hover {
+    background: #f7fafc;
+    color: #e53e3e;
+  }
+}
+
+.warningText {
+  color: #718096;
+  font-size: 0.875rem;
+  margin: 1rem 0;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cancelButton,
+.confirmButton {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton {
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #718096;
+
+  &:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.confirmButton {
+  background: #e53e3e;
+  border: 1px solid #e53e3e;
+  color: white;
+
+  &:hover {
+    background: #c53030;
+    border-color: #c53030;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

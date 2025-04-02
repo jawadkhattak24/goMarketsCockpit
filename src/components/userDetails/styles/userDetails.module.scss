@@ -140,6 +140,11 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  .fundsButtons {
+    display: flex;
+    gap: 0.5rem;
+  }
 }
 
 .addFundsButton {
@@ -155,6 +160,27 @@
 
   &:hover {
     background: #3182ce;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.withdrawFundsButton {
+  background: #FC8181;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #F56565;
   }
 
   &:disabled {
@@ -403,10 +429,39 @@
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-  h3 {
-    margin: 0 0 1rem 0;
-    color: #2d3748;
-    font-size: 1.25rem;
+  .dialogHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    h3 {
+      margin: 0;
+      color: #2d3748;
+      font-size: 1.25rem;
+    }
+  }
+
+  .closeButton {
+    background: transparent;
+    border: none;
+    color: #718096;
+    padding: 0.5rem;
+    margin: -0.5rem;
+    cursor: pointer;
+    border-radius: 6px;
+    line-height: 0;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #EDF2F7;
+      color: #2D3748;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+    }
   }
 
   p {
@@ -426,6 +481,22 @@
       border-radius: 6px;
       margin-bottom: 1.5rem;
     }
+  }
+
+  .balanceText {
+    color: #2D3748;
+    font-weight: 500;
+    background: #EDF2F7;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+
+  .errorText {
+    color: #9B2C2C;
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
   }
 }
 

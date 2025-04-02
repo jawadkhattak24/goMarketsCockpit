@@ -7,6 +7,9 @@ import UserDetails from "../../components/userDetails/userDetails";
 import skeletonStyles from "../../styles/skeleton.module.scss";
 import logo from "../../assets/images/logo.png";
 import { IoSearchOutline } from "react-icons/io5";
+import { IoLogOutOutline } from "react-icons/io5";
+import { IoMdClose } from "react-icons/io";
+import { useAuth } from "../../context/authContext";
 
 const UserSkeleton = () => (
     <div className={styles.userCardSkeleton}>
@@ -20,8 +23,10 @@ const fetchUsers = async (): Promise<User[]> => {
 };
 
 const Dashboard = () => {
+    const { logout } = useAuth();
     const [selectedUserEmail, setSelectedUserEmail] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState("");
+    const [showLogoutDialog, setShowLogoutDialog] = useState(false);
 
     const { data: users, isLoading, error } = useQuery({
         queryKey: ['users'],
@@ -91,10 +96,52 @@ const Dashboard = () => {
                         </div>
                     )}
                 </div>
+                <button className={styles.logoutButton} onClick={() => setShowLogoutDialog(true)}>
+                    <IoLogOutOutline />
+                    <span>Logout</span>
+                </button>
             </aside>
             <main className={styles.mainContent}>
                 <UserDetails userEmail={selectedUserEmail} />
             </main>
+
+            {showLogoutDialog && (
+                <div className={styles.dialogBackdrop}>
+                    <div className={styles.dialog}>
+                        <div className={styles.dialogHeader}>
+                            <h3>Confirm Logout</h3>
+                            <button
+                                className={styles.closeButton}
+                                onClick={() => setShowLogoutDialog(false)}
+                                aria-label="Close dialog"
+                            >
+                                <IoMdClose size={24} />
+                            </button>
+                        </div>
+                        <p>Are you sure you want to log out?</p>
+                        <p className={styles.warningText}>
+                            You will need to log in again to access the dashboard.
+                        </p>
+                        <div className={styles.dialogActions}>
+                            <button
+                                className={styles.cancelButton}
+                                onClick={() => setShowLogoutDialog(false)}
+                            >
+                                Cancel
+                            </button>
+                            <button
+                                className={styles.confirmButton}
+                                onClick={() => {
+                                    logout();
+                                    setShowLogoutDialog(false);
+                                }}
+                            >
+                                Confirm Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -1,0 +1,233 @@
+.registerDialogOverlay {
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(240, 240, 240);
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.loginDialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  width: min(450px, 85%);
+  background: white;
+  padding: clamp(15px, 2.7vw, 20px);
+}
+
+.registerLinksContainer {
+  margin-top: 20px;
+}
+
+.header {
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.headerText {
+  color: #8f8f8f;
+  font-size: clamp(16px, 2.4vw, 18px);
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+
+  svg {
+    width: clamp(16px, 2.7vw, 20px);
+    height: clamp(16px, 2.7vw, 20px);
+  }
+}
+
+.registerForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputContainer {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.errorText {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 5px;
+  padding-left: 15px;
+}
+
+.inputLabel {
+  color: #333;
+  font-size: clamp(12px, 1.9vw, 14px);
+  padding-left: clamp(8px, 1.4vw, 10px);
+  margin-bottom: clamp(4px, 0.7vw, 5px);
+}
+
+.baseInput {
+  width: 100%;
+  position: relative;
+
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: clamp(10px, 1.6vw, 12px) clamp(15px, 2.7vw, 20px);
+    border: none;
+    border-radius: 20px;
+    font-size: clamp(12px, 1.9vw, 14px);
+    background-color: #f8f8f8;
+
+    &::placeholder {
+      color: #999;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      background-color: #f0f0f0;
+      color: #999;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.passwordInput {
+  position: relative;
+
+  input {
+    padding-right: 45px;
+  }
+
+  .passwordToggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: #666;
+
+    &:hover {
+      color: #333;
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.verificationContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  height: clamp(35px, 5.4vw, 40px);
+
+  button {
+    background: #0165fa;
+    color: white;
+    height: 100%;
+    border: none;
+    border-radius: 20px;
+    padding: clamp(8px, 1.4vw, 10px) clamp(20px, 4.1vw, 30px);
+    font-size: clamp(10px, 1.6vw, 12px);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  .verificationInput {
+    width: 80%;
+
+    &:disabled {
+      background-color: #f0f0f0;
+      color: #999;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.registerButton {
+  width: 100%;
+  background: #0165fa;
+  color: white;
+  border: none;
+  padding: clamp(15px, 1.4vw, 10px) clamp(20px, 3.4vw, 25px);
+  border-radius: 20px;
+  font-size: clamp(14px, 2.2vw, 16px);
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+  }
+}
+
+.loadingButton {
+  cursor: not-allowed;
+  background-color: #5197ff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: clamp(15px, 2.7vw, 20px);
+  font-size: clamp(14px, 2.2vw, 16px);
+}
+
+@media screen and (max-width: 380px) {
+  .verificationContainer {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+
+    .verificationInput {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.linksContainer {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 clamp(10px, 1.6vw, 12px);
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.link {
+  color: #0165fa;
+  cursor: pointer;
+  font-size: clamp(12px, 1.9vw, 14px);
+}
