@@ -359,3 +359,118 @@
     cursor: not-allowed;
   }
 }
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.75rem;
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: #718096;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+
+  &:hover {
+    color: #4299e1;
+    background: #ebf8ff;
+  }
+
+  &.active {
+    color: #4299e1;
+    font-weight: 600;
+  }
+}
+
+.pairList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pairCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  border: 1px solid #e2e8f0;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-color: #cbd5e0;
+  }
+}
+
+.pairInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pairSymbol {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.pairPrice {
+  font-size: 0.875rem;
+  color: #718096;
+  margin: 0;
+}
+
+.percentageChange {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &[data-trend="up"] {
+    color: #48bb78;
+    background: #f0fff4;
+  }
+
+  &[data-trend="down"] {
+    color: #e53e3e;
+    background: #fff5f5;
+  }
+
+  .trendIcon {
+    font-size: 1.25rem;
+  }
+}
+
+.pairDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #718096;
+  text-align: center;
+
+  h2 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+}

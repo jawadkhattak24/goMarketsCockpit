@@ -1,0 +1,421 @@
+.pairDetails {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  h2 {
+    margin: 0;
+    font-size: 1.875rem;
+    color: #2d3748;
+    font-weight: 600;
+  }
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.controlButton {
+  background: #4299e1;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #3182ce;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.refreshButton {
+  background: transparent;
+  border: none;
+  color: #718096;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: #f7fafc;
+    color: #4299e1;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.rotating svg {
+    animation: rotate 1s linear infinite;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.section {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.25rem;
+    color: #2d3748;
+    font-weight: 600;
+  }
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 0.875rem;
+    color: #718096;
+  }
+
+  span {
+    font-size: 1rem;
+    color: #2d3748;
+    font-weight: 500;
+  }
+}
+
+.price {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #2d3748;
+}
+
+.change {
+  &[data-trend="up"] {
+    color: #48bb78 !important;
+  }
+
+  &[data-trend="down"] {
+    color: #e53e3e !important;
+  }
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: #f0fff4;
+  color: #48bb78 !important;
+  border-radius: 9999px;
+  font-size: 0.875rem !important;
+  font-weight: 500;
+}
+
+.tradingInfo, .marketHours {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.tradingInfoItem, .marketHoursItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 0.875rem;
+    color: #718096;
+  }
+
+  span {
+    font-size: 1rem;
+    color: #2d3748;
+    font-weight: 500;
+  }
+}
+
+.noSelection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.percentageChange {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &[data-trend="up"] {
+    color: #48bb78;
+    background: #f0fff4;
+  }
+
+  &[data-trend="down"] {
+    color: #e53e3e;
+    background: #fff5f5;
+  }
+
+  .trendIcon {
+    font-size: 1.25rem;
+  }
+}
+
+// Skeleton styles
+.titleSkeleton {
+  height: 36px;
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.badgeSkeleton {
+  height: 24px;
+  width: 100px;
+}
+
+.sectionTitleSkeleton {
+  height: 24px;
+  width: 150px;
+  margin-bottom: 1.5rem;
+}
+
+.labelSkeleton {
+  height: 16px;
+  width: 80px;
+  margin-bottom: 0.5rem;
+}
+
+.valueSkeleton {
+  height: 24px;
+  width: 120px;
+}
+
+.dialogBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dialogHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #2d3748;
+    font-weight: 600;
+  }
+}
+
+.dialogContent {
+  margin-bottom: 1.5rem;
+}
+
+.controlForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.controlSwitch {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  label {
+    font-size: 0.875rem;
+    color: #4a5568;
+  }
+
+  input[type="checkbox"] {
+    width: 2.5rem;
+    height: 1.25rem;
+    appearance: none;
+    background: #cbd5e0;
+    border-radius: 9999px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:checked {
+      background: #4299e1;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      background: white;
+      transform: translateX(0);
+      transition: transform 0.2s ease;
+    }
+
+    &:checked:before {
+      transform: translateX(1.25rem);
+    }
+  }
+}
+
+.controlInput {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 0.875rem;
+    color: #4a5568;
+  }
+}
+
+.percentageInput {
+  padding: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  width: 100%;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+  }
+
+  &:disabled {
+    background: #f7fafc;
+    cursor: not-allowed;
+  }
+}
+
+.errorText {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cancelButton,
+.confirmButton {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton {
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #718096;
+
+  &:hover {
+    background: #f7fafc;
+    border-color: #cbd5e0;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.confirmButton {
+  background: #4299e1;
+  border: 1px solid #4299e1;
+  color: white;
+
+  &:hover {
+    background: #3182ce;
+    border-color: #3182ce;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.pairSymbol {
+  font-size: 1rem;
+  color: #2d3748;
+  font-weight: 500;
+  margin: 0 0 1rem 0;
+}

@@ -69,4 +69,14 @@ export interface Transaction {
     updatedAt: string;
     quantity: number;
     type: TransactionType;
+}
+
+export interface TradingPair {
+    symbol: string;
+    currentPrice?: number;
+    percentageChange?: number;
+    id: number;
+    isControlled?: boolean;
+    controlPercentage?: number;
+    controlDuration?: number;
 } 

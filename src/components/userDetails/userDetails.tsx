@@ -17,7 +17,7 @@ interface UserDetailsResponse {
 }
 
 const fetchUserDetails = async (email: string): Promise<UserDetailsResponse> => {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/cockpit/users/details/${email}`);
+    const response = await axios.get(`http://localhost:3000/api/cockpit/users/details/${email}`);
     return response.data;
 };
 
@@ -246,7 +246,7 @@ const UserDetails = ({ userEmail }: UserDetailsProps) => {
 
     useEffect(() => {
         const isDialogOpen = showBanDialog || showUnbanDialog || showAddFundsDialog || showWithdrawFundsDialog;
-        
+
         if (isDialogOpen) {
             document.addEventListener('mousedown', handleClickOutside);
         }

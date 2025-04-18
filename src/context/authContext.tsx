@@ -31,17 +31,28 @@ interface User {
 }
 
 const fetchUserData = async (): Promise<User | null> => {
-    const token = localStorage.getItem("token");
-    if (!token) return null;
+    try {
+        const token = localStorage.getItem("token");
+        if (!token) return null;
 
-    const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/api/user/me`,
-        {
-            headers: { Authorization: `Bearer ${token}` },
-        }
-    );
-    console.log(response.data.user);
-    return response.data.user;
+        const response = await axios.get(
+            `http://localhost:3000/api/user/me`,
+            {
+                headers: { Authorization: `Bearer ${token}` },
+            }
+        );
+        // const response = await axios.get(
+        //     `${import.meta.env.VITE_API_URL}/api/user/me`,
+        //     {
+        //         headers: { Authorization: `Bearer ${token}` },
+        //     }
+        // );
+
+        return response.data.user || null;
+    } catch (error) {
+        console.error('Error fetching user data:', error);
+        return null;
+    }
 };
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
